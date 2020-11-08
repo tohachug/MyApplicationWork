@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Activity C"
         tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="135dp" />
+        tools:layout_editor_absoluteY="135dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
