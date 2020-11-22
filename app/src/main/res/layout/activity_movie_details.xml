@@ -9,9 +9,9 @@
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Constraint"
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/background"
         tools:context=".MovieDetailsActivity">
 
@@ -21,7 +21,9 @@
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/background"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
 
         <ImageView
             android:id="@+id/imageViewFillBackground"
@@ -29,7 +31,8 @@
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/fill_background"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewBack"
@@ -45,7 +48,7 @@
             android:alpha="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/textViewAge"
@@ -58,7 +61,7 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/imageViewBackground"
             app:layout_constraintStart_toStartOf="@id/imageViewBackground"
-            tools:ignore="MissingConstraints" />
+           />
 
         <TextView
             android:id="@+id/textViewNameMovie"
@@ -78,7 +81,7 @@
             android:textSize="40sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewAge"
-            tools:ignore="MissingConstraints" />
+           />
 
         <TextView
             android:id="@+id/textViewTag"
@@ -91,7 +94,7 @@
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewNameMovie"
-            tools:ignore="MissingConstraints" />
+            />
 
         <ImageView
             android:id="@+id/imageViewStarFill1"
@@ -102,7 +105,7 @@
             android:src="@drawable/star_icon_fill"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            tools:ignore="MissingConstraints" />
+            />
 
         <ImageView
             android:id="@+id/imageViewStarFill2"
@@ -113,7 +116,7 @@
             android:src="@drawable/star_icon_fill"
             app:layout_constraintStart_toEndOf="@+id/imageViewStarFill1"
             app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            tools:ignore="MissingConstraints" />
+            />
 
         <ImageView
             android:id="@+id/imageViewStarFill3"
@@ -124,7 +127,7 @@
             android:src="@drawable/star_icon_fill"
             app:layout_constraintStart_toEndOf="@+id/imageViewStarFill2"
             app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            tools:ignore="MissingConstraints" />
+            />
 
         <ImageView
             android:id="@+id/imageViewStarFill4"
@@ -135,7 +138,7 @@
             android:src="@drawable/star_icon_fill"
             app:layout_constraintStart_toEndOf="@+id/imageViewStarFill3"
             app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            tools:ignore="MissingConstraints" />
+            />
 
         <ImageView
             android:id="@+id/imageViewStarEmpty"
@@ -146,7 +149,7 @@
             android:src="@drawable/star_icon_empty"
             app:layout_constraintStart_toEndOf="@+id/imageViewStarFill4"
             app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/textViewReview"
@@ -159,7 +162,7 @@
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/imageViewStarEmpty"
             app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/textViewStoryHead"
@@ -178,7 +181,7 @@
             android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageViewStarFill1"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/textViewStory"
@@ -193,10 +196,10 @@
             android:lineSpacingExtra="4sp"
             android:gravity="center_vertical"
             android:alpha="0.75"
-            app:layout_constraintEnd_toEndOf="@id/Constraint"
-            app:layout_constraintStart_toStartOf="@id/Constraint"
+            app:layout_constraintEnd_toEndOf="@id/constraint"
+            app:layout_constraintStart_toStartOf="@id/constraint"
             app:layout_constraintTop_toBottomOf="@id/textViewStoryHead"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/textViewCast"
@@ -214,10 +217,10 @@
             android:shadowRadius="12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewStory"
-            tools:ignore="MissingConstraints" />
+            />
 
         <LinearLayout
-            android:id="@+id/Linear1"
+            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
@@ -226,7 +229,7 @@
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewCast"
-            tools:ignore="InvalidId,MissingConstraints">
+            >
 
             <ImageView
                 android:layout_width="match_parent"
@@ -268,6 +271,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linear2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
@@ -275,8 +279,8 @@
             android:background="@color/background"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Linear1"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@id/linear1"
+            >
 
             <TextView
                 android:layout_width="match_parent"
