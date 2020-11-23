@@ -25,4 +25,8 @@
     <style name="Theme.MyApplicationWork.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MyApplicationWork.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@color/textTags</item>
+    </style>
 </resources>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        tools:context=".MovieDetailsActivity">
+
+        <ImageView
+            android:id="@+id/imageViewBackground"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewFillBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/fill_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="56dp"
+            android:alpha="0.5"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/back"
+            android:textColor="@color/textBack"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginBottom="56dp"
+            android:text="@string/age"
+            android:textColor="@color/textBack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewBackground"
+            app:layout_constraintStart_toStartOf="@id/imageViewBackground" />
+
+        <TextView
+            android:id="@+id/textViewNameMovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_vertical"
+            android:shadowColor="#80000000"
+            android:shadowDx="0"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/nameMovie"
+            android:textColor="@color/textName"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewAge" />
+
+        <TextView
+            android:id="@+id/textViewTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="4dp"
+            android:text="@string/tagLine"
+            android:textColor="@color/textTags"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewNameMovie" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="8dp"
+            android:numStars="5"
+            android:rating="4"
+            android:stepSize="1"
+            android:theme="@style/MyRatingBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTag" />
+
+        <TextView
+            android:id="@+id/textViewReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/reviews"
+            android:textColor="@color/textRewiews"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@id/textViewTag" />
+
+        <TextView
+            android:id="@+id/textViewStoryHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:shadowColor="#80000000"
+            android:shadowDx="0"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/storyHead"
+            android:textColor="@color/textName"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+
+        <TextView
+            android:id="@+id/textViewStory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:alpha="0.75"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/story"
+            android:textColor="@color/textBack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/constraint"
+            app:layout_constraintStart_toStartOf="@id/constraint"
+            app:layout_constraintTop_toBottomOf="@id/textViewStoryHead" />
+
+        <TextView
+            android:id="@+id/textViewCast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
+            android:shadowDx="0"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/cast"
+            android:textColor="@color/textBack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewStory" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/robert_downey"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/chris_evans"
+            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/imageView1"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/mark_ruffalo"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/chris_hemsworth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/robertDowney"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView1"
+            app:layout_constraintTop_toBottomOf="@id/imageView1"
+            app:layout_constraintEnd_toEndOf="@id/imageView1"
+            android:textSize="@dimen/text_for_image"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/chrisEvans"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/imageView2"
+            app:layout_constraintEnd_toEndOf="@id/imageView2"
+            android:textSize="@dimen/text_for_image"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:text="@string/markRuffalo"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView3"
+            app:layout_constraintTop_toBottomOf="@id/imageView3"
+            app:layout_constraintEnd_toEndOf="@id/imageView3"
+            android:textSize="@dimen/text_for_image"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/chrisHemsworth"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView4"
+            app:layout_constraintTop_toBottomOf="@id/imageView4"
+            app:layout_constraintEnd_toEndOf="@id/imageView4"
+            android:textSize="@dimen/text_for_image"></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
