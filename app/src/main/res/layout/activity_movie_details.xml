@@ -18,12 +18,11 @@
         <ImageView
             android:id="@+id/imageViewBackground"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/background"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/imageViewFillBackground"
@@ -40,15 +39,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginTop="56dp"
+            android:alpha="0.5"
+            android:gravity="center_horizontal|center_vertical"
+            android:lineSpacingExtra="2sp"
             android:text="@string/back"
             android:textColor="@color/textBack"
             android:textSize="12sp"
-            android:lineSpacingExtra="2sp"
-            android:gravity="center_horizontal|center_vertical"
-            android:alpha="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewAge"
@@ -60,16 +58,15 @@
             android:textColor="@color/textBack"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/imageViewBackground"
-            app:layout_constraintStart_toStartOf="@id/imageViewBackground"
-           />
+            app:layout_constraintStart_toStartOf="@id/imageViewBackground" />
 
         <TextView
             android:id="@+id/textViewNameMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
-            android:layout_marginRight="@dimen/fab_margin"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="@dimen/fab_margin"
             android:fontFamily="sans-serif-black"
             android:gravity="center_vertical"
             android:shadowColor="#80000000"
@@ -80,8 +77,7 @@
             android:textColor="@color/textName"
             android:textSize="40sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewAge"
-           />
+            app:layout_constraintTop_toBottomOf="@id/textViewAge" />
 
         <TextView
             android:id="@+id/textViewTag"
@@ -93,20 +89,19 @@
             android:textColor="@color/textTags"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewNameMovie"
-            />
+            app:layout_constraintTop_toBottomOf="@id/textViewNameMovie" />
 
         <RatingBar
             android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginTop="8dp"
-            android:theme="@style/MyRatingBar"
-            style="?android:attr/ratingBarStyleSmall"
             android:numStars="5"
             android:rating="4"
             android:stepSize="1"
+            android:theme="@style/MyRatingBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewTag" />
 
@@ -120,8 +115,7 @@
             android:textColor="@color/textRewiews"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/ratingBar"
-            app:layout_constraintTop_toBottomOf="@id/textViewTag"
-            />
+            app:layout_constraintTop_toBottomOf="@id/textViewTag" />
 
         <TextView
             android:id="@+id/textViewStoryHead"
@@ -129,18 +123,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginTop="24dp"
-            android:text="@string/storyHead"
-            android:textColor="@color/textName"
-            android:textSize="14sp"
-            android:shadowColor = "#80000000"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="4sp"
+            android:shadowColor="#80000000"
             android:shadowDx="0"
             android:shadowDy="6"
             android:shadowRadius="12"
-            android:lineSpacingExtra="4sp"
-            android:gravity="center_vertical"
+            android:text="@string/storyHead"
+            android:textColor="@color/textName"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ratingBar"
-            />
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
 
         <TextView
             android:id="@+id/textViewStory"
@@ -149,16 +142,15 @@
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginTop="4dp"
             android:layout_marginRight="@dimen/fab_margin"
+            android:alpha="0.75"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="4sp"
             android:text="@string/story"
             android:textColor="@color/textBack"
             android:textSize="14sp"
-            android:lineSpacingExtra="4sp"
-            android:gravity="center_vertical"
-            android:alpha="0.75"
             app:layout_constraintEnd_toEndOf="@id/constraint"
             app:layout_constraintStart_toStartOf="@id/constraint"
-            app:layout_constraintTop_toBottomOf="@id/textViewStoryHead"
-            />
+            app:layout_constraintTop_toBottomOf="@id/textViewStoryHead" />
 
         <TextView
             android:id="@+id/textViewCast"
@@ -166,129 +158,122 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginTop="24dp"
-            android:text="@string/cast"
-            android:textColor="@color/textBack"
-            android:textSize="14sp"
-            android:lineSpacingExtra="8sp"
             android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
             android:shadowDx="0"
             android:shadowDy="6"
             android:shadowRadius="12"
+            android:text="@string/cast"
+            android:textColor="@color/textBack"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewStory"
-            />
+            app:layout_constraintTop_toBottomOf="@id/textViewStory" />
 
-        <LinearLayout
-            android:id="@+id/linear1"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_marginTop="7dp"
-            android:background="@color/background"
-            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/robert_downey"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewCast"
-            >
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/robert_downey"></ImageView>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/chris_evans"></ImageView>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mark_ruffalo"></ImageView>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/chris_hemsworth"></ImageView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear2"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_marginTop="6dp"
-            android:background="@color/background"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear1"
-            >
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/chris_evans"
+            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/imageView1"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:text="@string/robertDowney"
-                android:textColor="@color/textBack"
-                android:textSize="@dimen/text_for_image"
-                android:lineSpacingExtra="2sp"
-                android:gravity="center_vertical"
-                ></TextView>
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/mark_ruffalo"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:text="@string/chrisEvans"
-                android:textColor="@color/textBack"
-                android:textSize="@dimen/text_for_image"
-                android:lineSpacingExtra="2sp"
-                android:gravity="center_vertical"
-                ></TextView>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/chris_hemsworth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@id/textViewCast"></ImageView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_weight="1"
-                android:text="@string/markRuffalo"
-                android:textColor="@color/textBack"
-                android:textSize="@dimen/text_for_image"
-                android:gravity="center_vertical"
-                ></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/robertDowney"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView1"
+            app:layout_constraintTop_toBottomOf="@id/imageView1"
+            app:layout_constraintEnd_toEndOf="@id/imageView1"
+            android:textSize="@dimen/text_for_image"></TextView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="1"
-                android:text="@string/chrisHemsworth"
-                android:textColor="@color/textBack"
-                android:textSize="@dimen/text_for_image"
-                android:lineSpacingExtra="2sp"
-                android:gravity="center_vertical"
-                ></TextView>
-        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/chrisEvans"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView2"
+            app:layout_constraintTop_toBottomOf="@id/imageView2"
+            app:layout_constraintEnd_toEndOf="@id/imageView2"
+            android:textSize="@dimen/text_for_image"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:text="@string/markRuffalo"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView3"
+            app:layout_constraintTop_toBottomOf="@id/imageView3"
+            app:layout_constraintEnd_toEndOf="@id/imageView3"
+            android:textSize="@dimen/text_for_image"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:layout_marginTop="2dp"
+            android:lineSpacingExtra="2sp"
+            android:text="@string/chrisHemsworth"
+            android:textColor="@color/textBack"
+            app:layout_constraintStart_toStartOf="@id/imageView4"
+            app:layout_constraintTop_toBottomOf="@id/imageView4"
+            app:layout_constraintEnd_toEndOf="@id/imageView4"
+            android:textSize="@dimen/text_for_image"></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
