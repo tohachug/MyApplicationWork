@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".FragmentMoviesList">
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/mask2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageViewShape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/combined_shape"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="57dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/moveList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="55dp"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/moveList"
+        android:textColor="@color/textBack"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/imageViewShape"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <ImageView
+        android:id="@+id/imageViewMovieBG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_movie"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/moveList"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageViewMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/movie"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
+        app:layout_constraintTop_toBottomOf="@id/moveList"
+        app:layout_constraintEnd_toEndOf="@id/imageViewMovieBG"
+        />
+
+    <ImageView
+        android:id="@+id/imageViewMask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mask2"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
+        app:layout_constraintTop_toBottomOf="@id/moveList"
+        app:layout_constraintEnd_toEndOf="@id/imageViewMovieBG"
+        />
+
+    <ImageView
+        android:id="@+id/imageViewRectangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovie"
+        app:layout_constraintTop_toTopOf="@id/imageViewMovie"
+        />
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age"
+        android:textColor="@color/textBack"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="@id/imageViewRectangle"
+        app:layout_constraintTop_toTopOf="@id/imageViewRectangle"
+        />
+
+    <ImageView
+        android:id="@+id/imageViewLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/like"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="@id/imageViewMovie"
+        app:layout_constraintTop_toTopOf="@id/imageViewMovie"
+        />
+
+    <TextView
+        android:id="@+id/tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="214dp"
+        android:lineSpacingExtra="3sp"
+        android:text="@string/tagLine"
+        android:textColor="@color/textTags"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovie"
+        app:layout_constraintTop_toTopOf="@id/imageViewMovie"
+        />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="4dp"
+        android:numStars="5"
+        android:rating="4"
+        android:stepSize="1"
+        android:isIndicator="true"
+        android:theme="@style/MyRatingBar"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovie"
+        app:layout_constraintTop_toBottomOf="@id/tag" />
+
+    <TextView
+        android:id="@+id/textViewReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/reviews"
+        android:textColor="@color/textRewiews"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@id/ratingBar"
+        app:layout_constraintTop_toBottomOf="@id/tag" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewBG"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="14dp"-->
+<!--        android:adjustViewBounds="false"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/bg"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/imageViewMovie"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/imageViewMovie" />-->
+
+    <TextView
+        android:id="@+id/textViewNameMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_vertical"
+        android:shadowColor="#80000000"
+        android:shadowDx="0"
+        android:shadowDy="6"
+        android:shadowRadius="12"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/nameMovieList"
+        android:textColor="@color/textName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
+        app:layout_constraintTop_toBottomOf="@id/imageViewMask"
+    />
+
+    <TextView
+        android:id="@+id/textViewMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/min"
+        android:textColor="@color/min"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
+        app:layout_constraintTop_toBottomOf="@id/textViewNameMovie"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
