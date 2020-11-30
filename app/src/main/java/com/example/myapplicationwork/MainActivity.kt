@@ -24,10 +24,7 @@ class MainActivity : AppCompatActivity() , ClickListener {
     }
 
     override fun showList() {
-        supportFragmentManager.beginTransaction()
-            .apply {
-                supportFragmentManager.popBackStack()
-                commit()
-            }
+        supportFragmentManager.popBackStack()
     }
+
 }
