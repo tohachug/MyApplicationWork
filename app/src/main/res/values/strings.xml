@@ -15,6 +15,10 @@
     <string name="nameMovie">
         Avengers:\nEnd Game
     </string>
+    <string name="nameMovieList">
+        Avengers: End Game
+    </string>
+    <string name="min">137 min</string>
     <string name="tagLine">Action, Adventure, Fantasy</string>
     <string name="reviews">125 Reviews</string>
     <string name="storyHead">Storyline</string>
@@ -24,6 +28,9 @@
     <string name="chrisEvans">Chris  Evans</string>
     <string name="markRuffalo">Mark  Ruffalo</string>
     <string name="chrisHemsworth">Chris Hemsworth</string>
+    <string name="moveList">Movies list</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
