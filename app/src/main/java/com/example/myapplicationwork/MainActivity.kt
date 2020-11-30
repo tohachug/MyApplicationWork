@@ -6,18 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() , ClickListener {
 
-    private val moviesListFragment = FragmentMoviesList();
-    private val moviesDetailsFragment = FragmentMoviesDetails();
+    private val moviesListFragment = FragmentMoviesList()
+    private val moviesDetailsFragment = FragmentMoviesDetails()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        if(savedInstanceState == null)
-//            supportFragmentManager.beginTransaction()
-//                .apply {
-//                    add(R.id.main_container, moviesListFragment)
-//                    commit()
-//                }
     }
 
 
