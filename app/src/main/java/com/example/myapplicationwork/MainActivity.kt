@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() , ClickListener {
     override fun showList() {
         supportFragmentManager.beginTransaction()
             .apply {
-                replace(R.id.main_container, moviesListFragment).addToBackStack(null)
+                supportFragmentManager.popBackStack()
                 commit()
             }
     }
