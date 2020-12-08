@@ -11,16 +11,38 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="back">&lt; Back</string>
-    <string name="age">13+</string>
+    <string name="age13">13+</string>
+    <string name="age16">16+</string>
+
     <string name="nameMovie">
         Avengers:\nEnd Game
     </string>
     <string name="nameMovieList">
         Avengers: End Game
     </string>
-    <string name="min">137 min</string>
+    <string name="nameMovieList2">
+        Tenet
+    </string>
+    <string name="nameMovieList3">
+        Black Widow
+    </string>
+    <string name="nameMovieList4">
+        Wonder Woman 1984
+    </string>
+    <string name="min137">137 min</string>
+    <string name="min97">97 min</string>
+    <string name="min102">102 min</string>
+    <string name="min120">120 min</string>
     <string name="tagLine">Action, Adventure, Fantasy</string>
-    <string name="reviews">125 Reviews</string>
+    <string name="tagLine2">Action, Sci-Fi, Thriller</string>
+    <string name="tagLine3">Action, Adventure, Sci-Fi</string>
+    <string name="tagLine4">Action, Adventure, Fantasy</string>
+
+    <string name="reviews125">125 Reviews</string>
+    <string name="reviews98">98 Reviews</string>
+    <string name="reviews38">38 Reviews</string>
+    <string name="reviews74">74 Reviews</string>
+
     <string name="storyHead">Storyline</string>
     <string name="story">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos"'" actions and restore balance to the universe.</string>
     <string name="cast">Cast</string>
