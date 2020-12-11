@@ -13,10 +13,10 @@ import com.example.myapplicationwork.R
 import com.example.myapplicationwork.modelsClass.Movie
 
 class MoviesListAdapter(
-       // context: Context,
-        private var contextData: List<Movie>
-        // private val clickListener: ViewHolderMovies.OnRecyclerItemClicked
-        ): RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
+        private var contextData: List<Movie>,
+        private val clickListener: OnRecyclerItemClicked
+        //): RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
+): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolderMovies(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val movieImg: ImageView = itemView.findViewById(R.id.imageViewMovie)
@@ -29,15 +29,8 @@ class MoviesListAdapter(
         private val durationMovie: TextView = itemView.findViewById(R.id.textViewMin)
 
         fun onBind(movie: Movie) {
-
-//            movieImg.setImageDrawable(ContextCompat.getDrawable(
-//                    parent.context,
-//                    movie.urlImgMovie
-//            ))
-//
-//
-//            likeImg.setImageDrawable(ContextCompat.getDrawable(parent.context, movie.urlLike))
-
+            movieImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context,movie.urlImgMovie))
+            likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context, movie.urlLike))
             age.text = movie.age
             tags.text = movie.tags
             rating.rating = movie.rating
@@ -54,15 +47,40 @@ class MoviesListAdapter(
         return ViewHolderMovies(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolderMovies, position: Int) {
-        holder.onBind(contextData[position])
-    }
+//    override fun onBindViewHolder(holder: ViewHolderMovies, position: Int) {
+//        when (holder) {
+//            is ViewHolderMovies -> {
+//                holder.onBind(contextData[position])
+//                holder.itemView.setOnClickListener {
+//                    clickListener.onClick(contextData[position])
+//                }
+//            }
+//        }
+//    }
 
     override fun getItemCount(): Int = contextData.size
+
+    fun bindMovies(newMovies: List<Movie>) {
+        contextData = newMovies
+        notifyDataSetChanged()
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is ViewHolderMovies -> {
+                holder.onBind(contextData[position])
+                holder.itemView.setOnClickListener {
+                    clickListener.onClick(contextData[position])
+                }
+            }
+        }
+    }
+
 }
-//private val RecyclerView.ViewHolder.context
-//    get() = this.itemView.context
-//
-//interface OnRecyclerItemClicked {
-//    fun onClick(movie: Movie)
-//}
+
+private val RecyclerView.ViewHolder.context
+    get() = this.itemView.context
+
+interface OnRecyclerItemClicked {
+    fun onClick(movie: Movie)
+}

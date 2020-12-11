@@ -19,9 +19,6 @@ class MainActivity : AppCompatActivity() , ClickListener, ClickListenerOnList {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val rv = findViewById<RecyclerView>(R.id.list_movies)
-        val moviesAdapter = MoviesListAdapter(MoviesGenerator.generatorMovies())
-        rv.adapter = moviesAdapter
     }
 
 
@@ -38,7 +35,11 @@ class MainActivity : AppCompatActivity() , ClickListener, ClickListenerOnList {
     }
 
     override fun showDetail1() {
-        TODO("Not yet implemented")
+        supportFragmentManager.beginTransaction()
+                .apply {
+                    replace(R.id.main_container, moviesDetailsFragment).addToBackStack(null)
+                    commit()
+                }
     }
 
 }
