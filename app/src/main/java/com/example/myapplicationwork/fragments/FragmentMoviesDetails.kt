@@ -22,7 +22,6 @@ class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
         super.onViewCreated(view, savedInstanceState)
         recycler = view.findViewById<RecyclerView>(R.id.list_actors)
         val actorAdapter = ActorListAdapter (ActorGenerator.generatorActors())
-       // recycler?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(requireContext())
         recycler?.adapter = actorAdapter
 
         view.findViewById<TextView>(R.id.textViewBack).apply {

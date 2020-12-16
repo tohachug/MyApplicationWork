@@ -15,8 +15,6 @@ import com.example.myapplicationwork.modelsClass.Movie
 
 class ActorListAdapter(
         private var contextData: List<Actor>,
-     //   private val clickListener: OnRecyclerItemClicked
-        //): RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolderActor(itemView: View) : RecyclerView.ViewHolder(itemView) {

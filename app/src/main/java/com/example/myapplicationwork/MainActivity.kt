@@ -33,13 +33,4 @@ class MainActivity : AppCompatActivity() , ClickListener, ClickListenerOnList {
     override fun showList() {
         supportFragmentManager.popBackStack()
     }
-
-    override fun showDetail1() {
-        supportFragmentManager.beginTransaction()
-                .apply {
-                    replace(R.id.main_container, moviesDetailsFragment).addToBackStack(null)
-                    commit()
-                }
-    }
-
 }

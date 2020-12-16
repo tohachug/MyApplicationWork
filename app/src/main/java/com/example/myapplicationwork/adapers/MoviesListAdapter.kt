@@ -15,7 +15,6 @@ import com.example.myapplicationwork.modelsClass.Movie
 class MoviesListAdapter(
         private var contextData: List<Movie>,
         private val clickListener: OnRecyclerItemClicked
-        //): RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolderMovies(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -46,17 +45,6 @@ class MoviesListAdapter(
                 .inflate(R.layout.view_holder_movie, parent, false)
         return ViewHolderMovies(view)
     }
-
-//    override fun onBindViewHolder(holder: ViewHolderMovies, position: Int) {
-//        when (holder) {
-//            is ViewHolderMovies -> {
-//                holder.onBind(contextData[position])
-//                holder.itemView.setOnClickListener {
-//                    clickListener.onClick(contextData[position])
-//                }
-//            }
-//        }
-//    }
 
     override fun getItemCount(): Int = contextData.size
 
