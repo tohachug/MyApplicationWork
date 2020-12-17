@@ -1,6 +1,5 @@
 package com.example.myapplicationwork.adapers
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,7 @@ import com.example.myapplicationwork.modelsClass.Movie
 class MoviesListAdapter(
         private var contextData: List<Movie>,
         private val clickListener: OnRecyclerItemClicked
-): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+): RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
 
     class ViewHolderMovies(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val movieImg: ImageView = itemView.findViewById(R.id.imageViewMovie)
@@ -53,20 +52,15 @@ class MoviesListAdapter(
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is ViewHolderMovies -> {
-                holder.onBind(contextData[position])
-                holder.itemView.setOnClickListener {
-                    clickListener.onClick(contextData[position])
-                }
-            }
+     override fun onBindViewHolder(holder: ViewHolderMovies, position: Int) {
+        holder.onBind(contextData[position])
+        holder.itemView.setOnClickListener {
+            clickListener.onClick(contextData[position])
         }
     }
-
 }
 
-private val RecyclerView.ViewHolder.context
+private val MoviesListAdapter.ViewHolderMovies.context
     get() = this.itemView.context
 
 interface OnRecyclerItemClicked {

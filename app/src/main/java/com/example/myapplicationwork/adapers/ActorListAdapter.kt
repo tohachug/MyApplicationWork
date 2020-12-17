@@ -1,21 +1,18 @@
 package com.example.myapplicationwork.adapers
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationwork.R
 import com.example.myapplicationwork.modelsClass.Actor
-import com.example.myapplicationwork.modelsClass.Movie
 
 class ActorListAdapter(
         private var contextData: List<Actor>,
-): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+): RecyclerView.Adapter<ActorListAdapter.ViewHolderActor>() {
 
     class ViewHolderActor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val actorImg: ImageView = itemView.findViewById(R.id.imageView1)
@@ -41,15 +38,11 @@ class ActorListAdapter(
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is ViewHolderActor -> {
-                holder.onBind(contextData[position])
-            }
-        }
+    override fun onBindViewHolder(holder: ViewHolderActor, position: Int) {
+        holder.onBind(contextData[position])
     }
 }
 
-private val RecyclerView.ViewHolder.context
+private val ActorListAdapter.ViewHolderActor.context
     get() = this.itemView.context
 
