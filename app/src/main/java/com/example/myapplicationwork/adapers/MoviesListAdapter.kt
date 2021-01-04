@@ -8,8 +8,9 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplicationwork.R
-import com.example.myapplicationwork.modelsClass.Movie
+import com.example.myapplicationwork.data.Movie
 
 class MoviesListAdapter(
         private var contextData: List<Movie>,
@@ -27,14 +28,23 @@ class MoviesListAdapter(
         private val durationMovie: TextView = itemView.findViewById(R.id.textViewMin)
 
         fun onBind(movie: Movie) {
-            movieImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context,movie.urlImgMovie))
-            likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context, movie.urlLike))
-            age.text = movie.age
-            tags.text = movie.tags
-            rating.rating = movie.rating
-            textRewiews.text = movie.textRewiews
-            titleMovie.text = movie.titleMovie
-            durationMovie.text = movie.durationMovie
+          context?.let {
+                Glide.with(context)
+                .load(movie.poster)
+                        .into(movieImg)
+
+            }
+            if(movie.like) {
+                likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context,R.drawable.like))
+            } else {
+                likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context,R.drawable.like))
+            }
+            age.text = movie.minimumAge.toString().plus(" +")
+            tags.text = movie.genres.joinToString { it -> it.name }
+            rating.rating = movie.ratings/2
+            textRewiews.text = movie.numberOfRatings.toString().plus(" REVIEWS")
+            titleMovie.text = movie.title
+            durationMovie.text = movie.runtime.toString().plus(" MIN")
         }
     }
 

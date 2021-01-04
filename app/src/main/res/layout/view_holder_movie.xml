@@ -10,28 +10,28 @@
     tools:context=".fragments.FragmentMoviesList"
     >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/mask2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/mask2"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
-       <ImageView
-        android:id="@+id/imageViewMovieBG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bg_movie"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+<!--       <ImageView-->
+<!--        android:id="@+id/imageViewMovieBG"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/bg_movie"-->
+<!--        android:layout_marginLeft="0dp"-->
+<!--        android:layout_marginTop="0dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
 
     <ImageView
         android:id="@+id/imageViewMovie"
@@ -40,9 +40,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/movie_avengers"
-        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
-        app:layout_constraintTop_toTopOf="@id/imageViewMovieBG"
-        app:layout_constraintEnd_toEndOf="@id/imageViewMovieBG"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
@@ -51,9 +50,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/mask2"
         android:layout_marginTop="0dp"
-        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
-        app:layout_constraintTop_toTopOf="@id/imageViewMovieBG"
-        app:layout_constraintEnd_toEndOf="@id/imageViewMovieBG"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovie"
+        app:layout_constraintTop_toTopOf="@id/imageViewMovie"
+        app:layout_constraintEnd_toEndOf="@id/imageViewMovie"
         />
 
     <ImageView
@@ -151,8 +150,8 @@
         android:text="@string/nameMovieList"
         android:textColor="@color/textName"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
-        app:layout_constraintTop_toBottomOf="@id/imageViewMask"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewReview"
         />
 
     <TextView
@@ -164,7 +163,7 @@
         android:text="@string/min137"
         android:textColor="@color/min"
         android:textSize="8sp"
-        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewNameMovie"
         />
 

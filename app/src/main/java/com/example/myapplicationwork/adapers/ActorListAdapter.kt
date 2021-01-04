@@ -5,13 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplicationwork.R
-import com.example.myapplicationwork.modelsClass.Actor
+import com.example.myapplicationwork.data.Actor
 
 class ActorListAdapter(
-        private var contextData: List<Actor>,
+        private var contextData: List<Actor>
 ): RecyclerView.Adapter<ActorListAdapter.ViewHolderActor>() {
 
     class ViewHolderActor(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -19,8 +19,8 @@ class ActorListAdapter(
         private val nameActor: TextView = itemView.findViewById(R.id.nameActorText)
 
         fun onBind(actor: Actor) {
-            actorImg.setImageDrawable(ContextCompat.getDrawable(actorImg.context,actor.urlImgMovie))
-            nameActor.text = actor.nameActor
+            Glide.with(context).load(actor.picture).into(actorImg)
+            nameActor.text = actor.name
         }
     }
 
