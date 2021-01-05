@@ -5,19 +5,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/background"
+    android:layout_marginTop="10dp"
     tools:context=".fragments.FragmentMoviesList"
     >
+
+    <ImageView
+        android:id="@+id/imageViewMovieBG"
+        android:layout_width="165dp"
+        android:layout_height="241dp"
+        android:src="@drawable/bg_movie"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="0dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <ImageView
         android:id="@+id/imageViewMovie"
         android:layout_width="164dp"
         android:layout_height="240dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
         android:src="@drawable/movie_avengers"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/imageViewMovieBG"
+        app:layout_constraintTop_toTopOf="@id/imageViewMovieBG"
         />
 
     <ImageView
