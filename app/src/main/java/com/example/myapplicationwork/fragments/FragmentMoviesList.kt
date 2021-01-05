@@ -1,6 +1,5 @@
 package com.example.myapplicationwork.fragments
 
-//import com.example.myapplicationwork.modelsClass.Movie
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -18,37 +17,30 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
-  //  private var listener: ClickListener? = null
+
     private var listenerList: ClickListenerOnList? = null
     private var recycler: RecyclerView? = null
     private val scope = CoroutineScope(Dispatchers.Main);
-    private var moveList: List<Movie>? = null
+    private var moviesAdapter: MoviesListAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recycler = view.findViewById<RecyclerView>(R.id.list_movies)
-        var moviesAdapter: MoviesListAdapter? = null;
+        moviesAdapter = MoviesListAdapter(clickListener)
         scope.launch {
-            moveList = loadMovies(view.context)
-            moviesAdapter = MoviesListAdapter (moveList!!, clickListener)
-            recycler?.layoutManager = GridLayoutManager(requireContext(), 2)
-            recycler?.adapter = moviesAdapter
+            val moveList = loadMovies(requireContext())
+            moviesAdapter?.bindMovies(moveList)
         }
+
+        recycler = view.findViewById<RecyclerView>(R.id.list_movies)
+        recycler?.layoutManager = GridLayoutManager(requireContext(), 2)
+        recycler?.adapter = moviesAdapter
     }
 
-    private fun updateData() {
-        (recycler?.adapter as? MoviesListAdapter)?.apply {
-            moveList?.let {
-                bindMovies(it)
-            }
-        }
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if(context is ClickListenerOnList) {
+        if (context is ClickListenerOnList) {
             listenerList = context
         }
     }

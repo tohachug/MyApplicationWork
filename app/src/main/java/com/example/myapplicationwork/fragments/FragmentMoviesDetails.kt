@@ -15,55 +15,40 @@ import com.example.myapplicationwork.data.Movie
 import com.example.myapplicationwork.listeners.ClickListener
 
 class FragmentMoviesDetails : Fragment(R.layout.fragment_movies_details) {
-    private var listener: ClickListener?  = null
+    private var listener: ClickListener? = null
     private var recycler: RecyclerView? = null
-
-    private var movieImg: ImageView? = null
-    private var titleMovie: TextView? = null
-    private var rating: RatingBar? = null
-    private var tags: TextView? = null
-    private var storyline: TextView? = null
-    private var textRewiews: TextView? = null
-    private var age: TextView? = null
-    private var cast: TextView? = null
-
     private var movie: Movie? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //val movie = this.arguments?.getParcelable<Movie>("currentMovie")
-
-//        recycler = view.findViewById<RecyclerView>(R.id.list_actors)
-//        val actorAdapter = ActorListAdapter (movie!!.actors)
-//        recycler?.adapter = actorAdapter
+        val movieImg = view.findViewById<ImageView>(R.id.imageViewBackground)
+        var titleMovie = view.findViewById<TextView>((R.id.textViewNameMovie))
+        var rating = view.findViewById<RatingBar>(R.id.ratingBar)
+        var tags = view.findViewById<TextView>(R.id.textViewTag)
+        var storyline = view.findViewById<TextView>(R.id.textViewStory)
+        var textRewiews = view.findViewById<TextView>(R.id.textViewReview)
+        var age = view.findViewById<TextView>(R.id.textViewAge)
+        var cast = view.findViewById<TextView>(R.id.textViewCast)
 
         view.findViewById<TextView>(R.id.textViewBack).apply {
-            setOnClickListener { listener?.showList()  }
+            setOnClickListener { listener?.showList() }
         }
-        movieImg = view.findViewById(R.id.imageViewBackground)
-        titleMovie = view.findViewById((R.id.textViewNameMovie))
-        rating = view.findViewById(R.id.ratingBar)
-        tags = view.findViewById(R.id.textViewTag)
-        storyline = view.findViewById(R.id.textViewStory)
-        textRewiews = view.findViewById(R.id.textViewReview)
-        age = view.findViewById(R.id.textViewAge)
-        cast = view.findViewById(R.id.textViewCast)
 
         movie = this.arguments?.getParcelable<Movie>("movie")
 
         recycler = view.findViewById<RecyclerView>(R.id.list_actors)
-        var actorAdapter = ActorListAdapter (movie!!.actors)
+        var actorAdapter = ActorListAdapter(movie!!.actors)
         recycler?.adapter = actorAdapter
 
         movie?.let {
             Glide.with(view.context).load(it.backdrop).into(movieImg)
             titleMovie?.text = it.title
-            rating?.rating = it.ratings/2
+            rating?.rating = it.ratings / 2
             tags?.text = it.genres.joinToString { genre -> genre.name }
             storyline?.text = it.overview
             textRewiews?.text = StringBuilder().append(it.numberOfRatings).append(" REVIEWS").toString()
             age?.text = StringBuilder().append(it.minimumAge.toString()).append("+").toString()
-            if(it.actors.isEmpty()) {
+            if (it.actors.isEmpty()) {
                 cast?.visibility = View.GONE
                 recycler?.visibility = View.GONE
             }

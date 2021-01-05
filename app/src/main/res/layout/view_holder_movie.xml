@@ -5,55 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
     android:background="@color/background"
     tools:context=".fragments.FragmentMoviesList"
     >
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:src="@drawable/mask2"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.0" />-->
-
-<!--       <ImageView-->
-<!--        android:id="@+id/imageViewMovieBG"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/bg_movie"-->
-<!--        android:layout_marginLeft="0dp"-->
-<!--        android:layout_marginTop="0dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        />-->
-
     <ImageView
         android:id="@+id/imageViewMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="164dp"
+        android:layout_height="240dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:src="@drawable/movie_avengers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
-        android:id="@+id/imageViewMask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/mask2"
-        android:layout_marginTop="0dp"
-        app:layout_constraintStart_toStartOf="@id/imageViewMovie"
-        app:layout_constraintTop_toTopOf="@id/imageViewMovie"
+        android:id="@+id/imageView"
+        android:layout_width="164dp"
+        android:layout_height="240dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageViewMovie"
         app:layout_constraintEnd_toEndOf="@id/imageViewMovie"
-        />
+        app:layout_constraintStart_toStartOf="@id/imageViewMovie"
+        android:src="@drawable/mask2" />
 
     <ImageView
         android:id="@+id/imageViewRectangle"
@@ -94,13 +68,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="214dp"
+        android:layout_marginTop="180dp"
         android:lineSpacingExtra="3sp"
         android:text="@string/tagLine"
         android:textColor="@color/textTags"
         android:textSize="8sp"
         app:layout_constraintStart_toStartOf="@id/imageViewMovie"
-        app:layout_constraintTop_toTopOf="@id/imageViewMovie"
+        app:layout_constraintBottom_toTopOf="@id/ratingBar"
+
         />
 
     <RatingBar
@@ -113,33 +88,33 @@
         android:transformPivotX="0dp"
         android:transformPivotY="0dp"
         android:layout_marginLeft="6dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="0dp"
         android:numStars="5"
         android:rating="4"
         android:stepSize="1"
         android:isIndicator="true"
         android:theme="@style/MyRatingBar"
         app:layout_constraintStart_toStartOf="@id/imageViewMovie"
-        app:layout_constraintTop_toBottomOf="@id/tag" />
+        app:layout_constraintBottom_toTopOf="@id/textViewNameMovie" />
 
     <TextView
         android:id="@+id/textViewReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="6dp"
         android:text="@string/reviews125"
         android:textColor="@color/textRewiews"
         android:textSize="8sp"
         app:layout_constraintStart_toEndOf="@id/ratingBar"
-        app:layout_constraintTop_toBottomOf="@id/tag" />
+        app:layout_constraintBottom_toTopOf="@id/textViewNameMovie" />
 
     <TextView
         android:id="@+id/textViewNameMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center_vertical"
         android:shadowColor="#80000000"
@@ -151,7 +126,7 @@
         android:textColor="@color/textName"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewReview"
+        app:layout_constraintBottom_toTopOf="@id/textViewMin"
         />
 
     <TextView
@@ -164,7 +139,7 @@
         android:textColor="@color/min"
         android:textSize="8sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewNameMovie"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

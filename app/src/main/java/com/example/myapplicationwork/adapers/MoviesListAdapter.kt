@@ -13,9 +13,10 @@ import com.example.myapplicationwork.R
 import com.example.myapplicationwork.data.Movie
 
 class MoviesListAdapter(
-        private var contextData: List<Movie>,
         private val clickListener: OnRecyclerItemClicked
-): RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
+) : RecyclerView.Adapter<MoviesListAdapter.ViewHolderMovies>() {
+
+    private val contextData = mutableListOf<Movie>()
 
     class ViewHolderMovies(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val movieImg: ImageView = itemView.findViewById(R.id.imageViewMovie)
@@ -28,20 +29,19 @@ class MoviesListAdapter(
         private val durationMovie: TextView = itemView.findViewById(R.id.textViewMin)
 
         fun onBind(movie: Movie) {
-          context?.let {
+            context?.let {
                 Glide.with(context)
-                .load(movie.poster)
+                        .load(movie.poster)
                         .into(movieImg)
-
             }
-            if(movie.like) {
-                likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context,R.drawable.like))
+            if (movie.like) {
+                likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context, R.drawable.like))
             } else {
-                likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context,R.drawable.like))
+                likeImg.setImageDrawable(ContextCompat.getDrawable(movieImg.context, R.drawable.like))
             }
             age.text = movie.minimumAge.toString().plus(" +")
             tags.text = movie.genres.joinToString { it -> it.name }
-            rating.rating = movie.ratings/2
+            rating.rating = movie.ratings / 2
             textRewiews.text = movie.numberOfRatings.toString().plus(" REVIEWS")
             titleMovie.text = movie.title
             durationMovie.text = movie.runtime.toString().plus(" MIN")
@@ -58,11 +58,12 @@ class MoviesListAdapter(
     override fun getItemCount(): Int = contextData.size
 
     fun bindMovies(newMovies: List<Movie>) {
-        contextData = newMovies
+        contextData.clear()
+        contextData.addAll(newMovies)
         notifyDataSetChanged()
     }
 
-     override fun onBindViewHolder(holder: ViewHolderMovies, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderMovies, position: Int) {
         holder.onBind(contextData[position])
         holder.itemView.setOnClickListener {
             clickListener.onClick(contextData[position])

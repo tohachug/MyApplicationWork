@@ -20,7 +20,7 @@
             <ImageView
                 android:id="@+id/imageViewBackground"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="290dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/background"
                 app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +29,12 @@
             <ImageView
                 android:id="@+id/imageViewFillBackground"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="290dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/fill_background"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="@id/imageViewBackground"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewBackground"
+                app:layout_constraintTop_toTopOf="@id/imageViewBackground" />
 
             <TextView
                 android:id="@+id/textViewBack"

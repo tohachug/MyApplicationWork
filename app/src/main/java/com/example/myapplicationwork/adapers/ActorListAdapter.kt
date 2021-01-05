@@ -12,7 +12,7 @@ import com.example.myapplicationwork.data.Actor
 
 class ActorListAdapter(
         private var contextData: List<Actor>
-): RecyclerView.Adapter<ActorListAdapter.ViewHolderActor>() {
+) : RecyclerView.Adapter<ActorListAdapter.ViewHolderActor>() {
 
     class ViewHolderActor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val actorImg: ImageView = itemView.findViewById(R.id.imageView1)

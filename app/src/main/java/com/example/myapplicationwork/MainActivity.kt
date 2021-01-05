@@ -9,7 +9,7 @@ import com.example.myapplicationwork.listeners.ClickListener
 import com.example.myapplicationwork.listeners.ClickListenerOnList
 
 
-class MainActivity : AppCompatActivity() , ClickListener, ClickListenerOnList {
+class MainActivity : AppCompatActivity(), ClickListener, ClickListenerOnList {
 
     private val moviesListFragment = FragmentMoviesList()
     private val moviesDetailsFragment = FragmentMoviesDetails()
@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() , ClickListener, ClickListenerOnList {
         bundle.putParcelable("movie", movie)
         moviesDetailsFragment.arguments = bundle
         supportFragmentManager.beginTransaction()
-            .apply {
-                replace(R.id.main_container, moviesDetailsFragment)
-                    .addToBackStack(null)
-                commit()
-            }
+                .apply {
+                    replace(R.id.main_container, moviesDetailsFragment)
+                            .addToBackStack(null)
+                    commit()
+                }
     }
 
     override fun showList() {
