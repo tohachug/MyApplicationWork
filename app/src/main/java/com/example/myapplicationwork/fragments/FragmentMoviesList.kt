@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationwork.R
@@ -13,22 +14,23 @@ import com.example.myapplicationwork.data.Movie
 import com.example.myapplicationwork.data.loadMovies
 import com.example.myapplicationwork.listeners.ClickListenerOnList
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
 
     private var listenerList: ClickListenerOnList? = null
     private var recycler: RecyclerView? = null
-    private val scope = CoroutineScope(Dispatchers.Main);
     private var moviesAdapter: MoviesListAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         moviesAdapter = MoviesListAdapter(clickListener)
-        scope.launch {
-            val moveList = loadMovies(requireContext())
+        viewLifecycleOwner.lifecycleScope.launch {
+            val moveList = withContext(Dispatchers.Main) {
+                loadMovies(requireContext())
+            }
             moviesAdapter?.bindMovies(moveList)
         }
 

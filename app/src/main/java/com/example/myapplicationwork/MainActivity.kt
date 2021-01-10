@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), ClickListener, ClickListenerOnList {
         supportFragmentManager.beginTransaction()
                 .apply {
                     replace(R.id.main_container, moviesDetailsFragment)
-                            .addToBackStack(null)
+                    addToBackStack(null)
                     commit()
                 }
     }
