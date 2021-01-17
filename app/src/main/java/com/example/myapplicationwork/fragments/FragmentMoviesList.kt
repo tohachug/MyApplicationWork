@@ -4,48 +4,50 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplicationwork.MainViewModel
+import com.example.myapplicationwork.MainViewModelFactory
 import com.example.myapplicationwork.R
 import com.example.myapplicationwork.adapers.MoviesListAdapter
 import com.example.myapplicationwork.adapers.OnRecyclerItemClicked
 import com.example.myapplicationwork.data.Movie
-import com.example.myapplicationwork.data.loadMovies
 import com.example.myapplicationwork.listeners.ClickListenerOnList
+import com.example.myapplicationwork.util.ResProvider
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
 
     private var listenerList: ClickListenerOnList? = null
     private var recycler: RecyclerView? = null
     private var moviesAdapter: MoviesListAdapter? = null
+    private lateinit var viewModel: MainViewModel
+    private var movie = mutableListOf<Movie>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         moviesAdapter = MoviesListAdapter(clickListener)
-        viewLifecycleOwner.lifecycleScope.launch {
-            val moveList = withContext(Dispatchers.Main) {
-                loadMovies(requireContext())
-            }
-            moviesAdapter?.bindMovies(moveList)
-        }
+
+        val resProvider = ResProvider(this.requireContext())
+        val factory = MainViewModelFactory(resProvider)
+        viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
+        viewModel.liveData.observe(this.viewLifecycleOwner, Observer {
+            moviesAdapter?.bindMovies(it)
+        })
 
         recycler = view.findViewById<RecyclerView>(R.id.list_movies)
         recycler?.layoutManager = GridLayoutManager(requireContext(), 2)
         recycler?.adapter = moviesAdapter
     }
 
-
-    override fun onAttach(context: Context) {
+     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is ClickListenerOnList) {
             listenerList = context
         }
-    }
+   }
 
     override fun onDetach() {
         super.onDetach()
@@ -56,7 +58,7 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
         recycler?.let { rv ->
             Snackbar.make(
                     rv,
-                    movie.title,// titleMovie,
+                    movie.title,
                     Snackbar.LENGTH_SHORT)
                     .show()
         }
@@ -68,6 +70,5 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
             doOnClick(movie)
         }
     }
-
 }
 
