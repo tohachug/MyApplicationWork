@@ -20,21 +20,15 @@ import retrofit2.http.Query
 class ResProvider(val context: Context) : Provider {
     var moviesList: MutableList<Movie> =  mutableListOf()
     override suspend fun loadFilms(): List<Movie> {
-        loadMovies()
-        return moviesList
-        return loadMovies(context)
+        return loadMovies()
+        //return loadMovies(context)
     }
 
     var coroutineScope = CoroutineScope(Job() + Dispatchers.IO)
-//    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-//        Log.e(TAG, "Coroutine exception, scope active:${coroutineScope.isActive}", throwable)
-//        coroutineScope = CoroutineScope(Job() + Dispatchers.IO)
-//    }
 
-    private fun loadMovies() : {
+    private suspend fun loadMovies() : List<Movie> {
         coroutineScope.launch() {
             val moviesApi = RetrofitModule.moviesApi.getMovies()
-            println(moviesApi)
             println("Вывожу список")
             for (it in moviesApi.movies) {
              moviesList.add(
@@ -56,6 +50,7 @@ class ResProvider(val context: Context) : Provider {
             }
             println(moviesList)
         }
+        return moviesList
     }
 
     private interface ApiService {

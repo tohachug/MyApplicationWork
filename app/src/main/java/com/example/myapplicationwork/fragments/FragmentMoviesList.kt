@@ -34,6 +34,7 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
         val factory = MainViewModelFactory(resProvider)
         viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
         viewModel.liveData.observe(this.viewLifecycleOwner, Observer {
+            println("во фрагменте: "+it)
             moviesAdapter?.bindMovies(it)
         })
 
