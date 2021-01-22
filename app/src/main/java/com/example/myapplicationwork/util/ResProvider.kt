@@ -37,6 +37,7 @@ class ResProvider(val context: Context) : Provider {
         coroutineScope.launch() {
             val moviesApi = RetrofitModule.moviesApi.getMovies()
             println("Вывожу список")
+            
 
             for (it in moviesApi.movies) {
                 val detailsMovie = RetrofitModule.moviesApi.getMovieDetails(it.id)
