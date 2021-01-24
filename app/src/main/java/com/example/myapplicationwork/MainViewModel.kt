@@ -15,7 +15,6 @@ class MainViewModel(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            println("уже во VM "+resProvider.loadFilms())
             _lifeData.postValue(resProvider.loadFilms().toMutableList())
         }
     }
