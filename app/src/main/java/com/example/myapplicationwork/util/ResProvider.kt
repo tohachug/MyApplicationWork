@@ -1,12 +1,12 @@
 package com.example.myapplicationwork.util
 
-import android.content.Context
+import com.example.myapplicationwork.GetInfoFromApi
 import com.example.myapplicationwork.data.Movie
-import com.example.myapplicationwork.data.loadMovies
 
-class ResProvider(val context: Context): Provider {
+class ResProvider() : Provider {
+    val getInfoFromApi = GetInfoFromApi()
+
     override suspend fun loadFilms(): List<Movie> {
-        return loadMovies(context)
+        return getInfoFromApi.loadMoviesApi()
     }
-
 }

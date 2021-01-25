@@ -30,11 +30,11 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
         super.onViewCreated(view, savedInstanceState)
         moviesAdapter = MoviesListAdapter(clickListener)
 
-        val resProvider = ResProvider(this.requireContext())
+        val resProvider = ResProvider()
         val factory = MainViewModelFactory(resProvider)
         viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
         viewModel.liveData.observe(this.viewLifecycleOwner, Observer {
-            moviesAdapter?.bindMovies(it)
+             moviesAdapter?.bindMovies(it)
         })
 
         recycler = view.findViewById<RecyclerView>(R.id.list_movies)

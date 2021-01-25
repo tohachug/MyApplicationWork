@@ -28,7 +28,8 @@ class MoviesListAdapter(
         private val titleMovie: TextView = itemView.findViewById(R.id.textViewNameMovie)
         private val durationMovie: TextView = itemView.findViewById(R.id.textViewMin)
 
-        fun onBind(movie: Movie) {
+        //fun onBind(movie: Movie) {
+         fun onBind(movie: Movie) {
             context?.let {
                 Glide.with(context)
                         .load(movie.poster)
