@@ -24,14 +24,13 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
     private var recycler: RecyclerView? = null
     private var moviesAdapter: MoviesListAdapter? = null
     private lateinit var viewModel: MainViewModel
-    private var movie = mutableListOf<Movie>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         moviesAdapter = MoviesListAdapter(clickListener)
 
         val resProvider = ResProvider()
-        val factory = MainViewModelFactory(resProvider)
+        val factory = MainViewModelFactory(resProvider, applicationContext = requireContext().applicationContext)
         viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
         viewModel.liveData.observe(this.viewLifecycleOwner, Observer {
              moviesAdapter?.bindMovies(it)
