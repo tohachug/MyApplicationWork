@@ -1,6 +1,5 @@
 package com.example.myapplicationwork
 
-import android.content.Context
 import com.example.myapplicationwork.data.Actor
 import com.example.myapplicationwork.data.Genre
 import com.example.myapplicationwork.data.Movie
@@ -8,9 +7,9 @@ import com.example.myapplicationwork.entity.ActorEntity
 import com.example.myapplicationwork.entity.GenreEntity
 import com.example.myapplicationwork.entity.MovieEntity
 
-class MoviesEntityRepository(applicationContext: Context) {
+class MoviesEntityRepository() {
 
-    private val moviesDb = DataBase.create(applicationContext)
+    private val moviesDb = DataBase.create(PersistencyApp.getContext())
 
     suspend fun getMovies() : List<Movie>{
         val moviesConvert : MutableList<Movie> = mutableListOf()

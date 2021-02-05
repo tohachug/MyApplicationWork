@@ -30,7 +30,7 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
         moviesAdapter = MoviesListAdapter(clickListener)
 
         val resProvider = ResProvider()
-        val factory = MainViewModelFactory(resProvider, applicationContext = requireContext().applicationContext)
+        val factory = MainViewModelFactory(resProvider)
         viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
         viewModel.liveData.observe(this.viewLifecycleOwner, Observer {
              moviesAdapter?.bindMovies(it)
