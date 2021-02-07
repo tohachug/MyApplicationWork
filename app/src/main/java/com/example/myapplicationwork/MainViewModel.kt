@@ -9,13 +9,22 @@ import kotlinx.coroutines.launch
 class MainViewModel(
     private val resProvider: ResProvider
 ) : ViewModel() {
-    private val _lifeData = MutableLiveData<MutableList<Movie>>()
-    val liveData: LiveData<MutableList<Movie>>
+    private val _lifeData = MutableLiveData<List<Movie>>()
+    val liveData: LiveData<List<Movie>>
         get() = _lifeData
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            _lifeData.postValue(resProvider.loadFilms().toMutableList())
+
+            val moviesDb = MoviesEntityRepository()
+            val moviesFromDb = moviesDb.getMovies()
+
+            _lifeData.postValue(moviesFromDb)
+
+            val moviesApi = resProvider.loadFilms()
+            _lifeData.postValue(moviesApi)
+
+           moviesDb.saveMovies(moviesApi)
         }
     }
 }

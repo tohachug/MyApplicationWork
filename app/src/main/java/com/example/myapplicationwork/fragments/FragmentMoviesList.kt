@@ -24,7 +24,6 @@ class FragmentMoviesList : Fragment(R.layout.fragment_movies_list) {
     private var recycler: RecyclerView? = null
     private var moviesAdapter: MoviesListAdapter? = null
     private lateinit var viewModel: MainViewModel
-    private var movie = mutableListOf<Movie>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
