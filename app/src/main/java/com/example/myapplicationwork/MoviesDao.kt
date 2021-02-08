@@ -4,11 +4,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.myapplicationwork.entity.MovieEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MoviesDao {
     @Query("SELECT * FROM movies")
     suspend fun getAll(): List<MovieEntity>
+
+    @Query("SELECT * FROM movies")
+    suspend fun getAllFlow(): Flow<List<MovieEntity>>
 
     @Insert
     suspend fun insert(location: MovieEntity)
