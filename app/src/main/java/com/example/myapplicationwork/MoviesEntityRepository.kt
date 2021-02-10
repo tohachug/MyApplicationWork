@@ -15,6 +15,8 @@ class MoviesEntityRepository() {
         val moviesConvert : MutableList<Movie> = mutableListOf()
         val movieEntities = moviesDb.moviesDao.getAll()
 
+        val liveDataCach = moviesDb.moviesDao.getAllLiveData()
+
         for (movieEntity in movieEntities) {
             val genres = movieEntity.genreId.split(",").filter {
                 it.isNotEmpty()

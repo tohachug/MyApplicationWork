@@ -14,7 +14,7 @@ class MainViewModel(
         get() = _lifeData
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
+      viewModelScope.launch(Dispatchers.IO) {
 
             val moviesDb = MoviesEntityRepository()
             val moviesFromDb = moviesDb.getMovies()

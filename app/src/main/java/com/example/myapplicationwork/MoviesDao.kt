@@ -1,10 +1,10 @@
 package com.example.myapplicationwork
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.myapplicationwork.entity.MovieEntity
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MoviesDao {
@@ -12,7 +12,7 @@ interface MoviesDao {
     suspend fun getAll(): List<MovieEntity>
 
     @Query("SELECT * FROM movies")
-    suspend fun getAllFlow(): Flow<List<MovieEntity>>
+    suspend fun getAllLiveData(): LiveData<List<MovieEntity>>
 
     @Insert
     suspend fun insert(location: MovieEntity)

@@ -1,11 +1,11 @@
 package com.example.myapplicationwork
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.myapplicationwork.entity.ActorEntity
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ActorsDao {
@@ -13,7 +13,7 @@ interface ActorsDao {
     suspend fun getAll(): List<ActorEntity>
 
     @Query("SELECT * FROM actors")
-    suspend fun getAllFlow(): Flow<List<ActorEntity>>
+    suspend fun getAllLiveData(): LiveData<List<ActorEntity>>
 
     @Query("SELECT * FROM actors where id= :id")
     suspend fun getById(id: Long): ActorEntity
