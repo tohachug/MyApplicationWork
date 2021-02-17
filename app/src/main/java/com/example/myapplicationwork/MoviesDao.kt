@@ -12,7 +12,7 @@ interface MoviesDao {
     suspend fun getAll(): List<MovieEntity>
 
     @Query("SELECT * FROM movies")
-    suspend fun getAllLiveData(): LiveData<List<MovieEntity>>
+    fun getAllLiveData(): LiveData<List<MovieEntity>>
 
     @Insert
     suspend fun insert(location: MovieEntity)

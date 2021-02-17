@@ -2,6 +2,7 @@ package com.example.myapplicationwork
 
 import androidx.lifecycle.*
 import com.example.myapplicationwork.data.Movie
+import com.example.myapplicationwork.entity.MovieEntity
 import com.example.myapplicationwork.util.ResProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -9,23 +10,34 @@ import kotlinx.coroutines.launch
 class MainViewModel(
     private val resProvider: ResProvider
 ) : ViewModel() {
-    private val _lifeData = MutableLiveData<List<Movie>>()
+    private val _liveData = MutableLiveData<List<Movie>>()
     val liveData: LiveData<List<Movie>>
-        get() = _lifeData
+        get() = _liveData
+
+    private val db = DataBase.create(PersistencyApp.getContext())
+    val movieDao = db.moviesDao
+    val entityRepository = MoviesEntityRepository()
+
+    val movieLiveData = movieDao.getAllLiveData()
+
+    private val observer = Observer<List<MovieEntity>> { movieEntityList ->
+        viewModelScope.launch {
+            val movies = entityRepository.parseToMovieList(movieEntityList)
+            _liveData.postValue(movies)
+        }
+    }
 
     init {
-      viewModelScope.launch(Dispatchers.IO) {
-
-            val moviesDb = MoviesEntityRepository()
-            val moviesFromDb = moviesDb.getMovies()
-
-            _lifeData.postValue(moviesFromDb)
-
-            val moviesApi = resProvider.loadFilms()
-            _lifeData.postValue(moviesApi)
-
-           moviesDb.saveMovies(moviesApi)
+        movieLiveData.observeForever(observer)
+        viewModelScope.launch(Dispatchers.IO) {
+        val moviesApi = resProvider.loadFilms()
+        entityRepository.saveMovies(moviesApi)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        movieLiveData.removeObserver(observer)
     }
 }
 

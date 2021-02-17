@@ -1,6 +1,5 @@
 package com.example.myapplicationwork
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,9 +10,6 @@ import com.example.myapplicationwork.entity.GenreEntity
 interface GenresDao {
     @Query("SELECT * FROM genres")
     suspend fun getAll(): List<GenreEntity>
-
-    @Query("SELECT * FROM genres")
-    suspend fun getAllLiveData(): LiveData<List<GenreEntity>>
 
     @Query("SELECT * FROM genres where id= :id")
     suspend fun getById(id: Long): GenreEntity
