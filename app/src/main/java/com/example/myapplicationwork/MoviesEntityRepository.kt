@@ -7,7 +7,7 @@ import com.example.myapplicationwork.entity.ActorEntity
 import com.example.myapplicationwork.entity.GenreEntity
 import com.example.myapplicationwork.entity.MovieEntity
 
-class MoviesEntityRepository(){
+class MoviesEntityRepository() {
 
     private val moviesDb = DataBase.create(PersistencyApp.getContext())
 
