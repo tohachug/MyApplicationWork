@@ -30,8 +30,8 @@ class MainViewModel(
     init {
         movieLiveData.observeForever(observer)
         viewModelScope.launch(Dispatchers.IO) {
-        val moviesApi = resProvider.loadFilms()
-        entityRepository.saveMovies(moviesApi)
+            val moviesApi = resProvider.loadFilms()
+            entityRepository.saveMovies(moviesApi)
         }
     }
 
