@@ -11,12 +11,11 @@ class MoviesEntityRepository() {
 
     private val moviesDb = DataBase.create(PersistencyApp.getContext())
 
-    suspend fun getMovies() : List<Movie>{
+    suspend fun parseToMovieList(movieEntityList: List<MovieEntity>): List<Movie>{
         val moviesConvert : MutableList<Movie> = mutableListOf()
-        val movieEntities = moviesDb.moviesDao.getAll()
 
-        for (movieEntity in movieEntities) {
-            val genres = movieEntity.genreId.split(",").filter {
+        for (movieEntity in movieEntityList) {
+              val genres = movieEntity.genreId.split(",").filter {
                 it.isNotEmpty()
             }.map {
                 moviesDb.genresDao.getById(it.toLong())
